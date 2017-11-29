@@ -1,0 +1,77 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+<script>
+
+    /* Criando função que vai sortear os números */    
+    function sorteia() {
+        
+        return Math.round(Math.random() * 10);
+    }
+    
+    /* Criando função que vai criar o array vazio, comparar se os números sorteados estão acompanhando a quantidade (while), ver se os números sorteados estão vindo duplicados, já que não pode haver repetição (for) e retornando a lista de números sorteados no final */
+    
+    function sorteiaNumeros(quantidade) {
+        
+        var segredos = [];
+        
+        var numero = 1;
+        
+        while(numero <= quantidade) {
+            var numeroAleatorio = sorteia();
+            var achou = false;
+            
+            for(var i = 0; i < segredos.length; i++) {
+                
+                if(segredos[i] == numeroAleatorio) {
+                    achou = true;
+                    break;
+                }
+            }
+            
+            if(achou == false) {
+                segredos.push(numeroAleatorio);
+                numero++;
+            }
+
+        }
+        
+        return segredos;
+    }
+    
+    var segredos = sorteiaNumeros(3);
+    
+    console.log(segredos);
+    
+    var input = document.querySelector("input");
+    input.focus();
+
+    /* Verificando se o número inputado pelo usuário é igual ao número sorteado */
+    
+    function verifica() {
+        var achou = false;
+        for(var i = 0; i < segredos.length; i++) {
+             if(input.value == segredos[i]) {
+                 alert("VOCÊ ACERTOU!");
+                 achou = true;
+                 break;
+                 input.value = "";
+                 input.focus();
+             }    
+        }
+
+        if(achou == false) {
+            alert("VOCÊ ERROU!");
+        }
+        input.value = "";
+        input.focus();
+    } 
+
+
+    /* Criando evento para que o processamento aconteça assim que o usuário clique em "comparar" */
+    
+    var button = document.querySelector("button");
+    button.onclick = verifica;
+
+</script>

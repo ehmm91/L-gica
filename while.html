@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+
+<h1>Programa bagunçado do Daniel</h1>
+
+<script>
+
+    function pulaLinha()
+    {
+        document.write("<br>");
+    }
+    
+    function mostra(frase)
+    {
+        document.write(frase); 
+        pulaLinha();
+    }
+    
+    function sorteia()
+    {
+        return Math.round(Math.random() * 100);
+    }
+    
+    
+    var numeroPensado = sorteia();
+
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+    var cont = 1;
+
+    if(chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+        
+        while(cont <= 10)
+        {
+            mostra("Já era, você errou!");
+            cont = cont + 1;
+        }
+    
+    }
+    
+    
+</script>

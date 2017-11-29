@@ -1,0 +1,24 @@
+<!-- Imprima em ordem decrescente todos os números entre 20 e 0, incluindo os limites! No final, escreva a palavra "FIM". DICA: você pode decrementar uma variável!-->
+
+<meta charset="UTF-8">
+<h1>Números entre 20 e 0, descrescente memo</h1>
+<script>
+    function pulaLinha()
+    {
+        document.write("<br>");    
+    }
+    
+    function mostra(frase)
+    {
+        document.write(frase); 
+        pulaLinha();
+    }
+    
+    var cont = 20;
+    
+    while(cont >= 0)
+    {
+        mostra(cont);
+        cont = cont - 1;
+    }
+</script>
